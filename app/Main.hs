@@ -1,43 +1,40 @@
 module Main where
 
-import System.Environment
-import System.Directory
-import System.IO
-import Data.List
-
 import Lib
 
-dispatch :: [(String, [String] -> IO ())]
-dispatch =  [ ("add", add)
-            , ("view", view)
-            , ("remove", remove)
-            ]
+import Options.Applicative
+import Data.Semigroup ((<>))
 
-main = do
-    (command:args) <- getArgs
-    let (Just action) = lookup command dispatch
-    action args
+data Sample = Sample
+  { hello      :: String
+  , quiet      :: Bool
+  , enthusiasm :: Int }
 
-add :: [String] -> IO ()
-add [fileName, todoItem] = appendFile fileName (todoItem ++ "\n")
+sample :: Parser Sample
+sample = Sample
+      <$> strOption
+          ( long "hello"
+         <> metavar "TARGET"
+         <> help "Target for the greeting" )
+      <*> switch
+          ( long "quiet"
+         <> short 'q'
+         <> help "Whether to be quiet" )
+      <*> option auto
+          ( long "enthusiasm"
+         <> help "How enthusiastically to greet"
+         <> showDefault
+         <> value 1
+         <> metavar "INT" )
 
-view :: [String] -> IO ()
-view [fileName] = do
-    contents <- readFile fileName
-    let todoTasks = lines contents
-        numberedTasks = zipWith (\n line -> show n ++ " - " ++ line) [0..] todoTasks
-    putStr $ unlines numberedTasks
+main :: IO ()
+main = greet =<< execParser opts
+  where
+    opts = info (sample <**> helper)
+      ( fullDesc
+     <> progDesc "Print a greeting for TARGET"
+     <> header "hello - a test for optparse-applicative" )
 
-remove :: [String] -> IO ()
-remove [fileName, numberString] = do
-    handle <- openFile fileName ReadMode
-    (tempName, tempHandle) <- openTempFile "." "temp"
-    contents <- hGetContents handle
-    let number = read numberString
-        todoTasks = lines contents
-        newTodoItems = delete (todoTasks !! number) todoTasks
-    hPutStr tempHandle $ unlines newTodoItems
-    hClose handle
-    hClose tempHandle
-    removeFile fileName
-    renameFile tempName fileName
+greet :: Sample -> IO ()
+greet (Sample h False n) = putStrLn $ "Hello, " ++ h ++ replicate n '!'
+greet _ = return ()

@@ -24,7 +24,7 @@ executable husky-tricks-exe
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , directory
+                     , optparse-applicative
                      , husky-tricks
   default-language:    Haskell2010
 
