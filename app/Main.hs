@@ -5,36 +5,70 @@ import Lib
 import Options.Applicative
 import Data.Semigroup ((<>))
 
-data Sample = Sample
-  { hello      :: String
-  , quiet      :: Bool
-  , enthusiasm :: Int }
+data Options = Options
+  { version    :: Bool
+  , debug      :: Bool
+  , configure  :: Bool
+  , initialize :: Bool
+  , list       :: String
+  , search     :: String
+  , add        :: String
+  , modify     :: String
+  , remove     :: String
+}
 
-sample :: Parser Sample
-sample = Sample
-      <$> strOption
-          ( long "hello"
-         <> metavar "TARGET"
-         <> help "Target for the greeting" )
-      <*> switch
-          ( long "quiet"
-         <> short 'q'
-         <> help "Whether to be quiet" )
-      <*> option auto
-          ( long "enthusiasm"
-         <> help "How enthusiastically to greet"
-         <> showDefault
-         <> value 1
-         <> metavar "INT" )
+options :: Parser Options
+options = Options
+       <$> switch
+           ( long "version"
+           <> short 'v'
+           <> help "Display the program version")
+       <*> switch
+           ( long "debug"
+           <> short 'd'
+           <> help "Run the program in debug mode")
+       <*> switch
+           ( long "configure"
+           <> short 'c'
+           <> help "Configure the program for use")
+       <*> switch
+           ( long "initialize"
+           <> short 'i'
+           <> help "Clear configuration and reset to defaults")
+       <*> strOption
+           ( long "list"
+          <> short 'l'
+          <> metavar "LIST"
+          <> help "List keys, credentials or data stores" )
+       <*> strOption
+           ( long "search"
+          <> short 's'
+          <> metavar "SEARCH"
+          <> help "Search for a credential and return result" )
+       <*> strOption
+           ( long "add"
+          <> short 'a'
+          <> metavar "ADD"
+          <> help "Add a key, credential or data store" )
+       <*> strOption
+           ( long "modify"
+          <> short 'm'
+          <> metavar "MODIFY"
+          <> help "Modify a key, credential or data store" )
+       <*> strOption
+           ( long "remove"
+          <> short 'r'
+          <> metavar "REMOVE"
+          <> help "Remove a key, credential or data store" )
 
 main :: IO ()
 main = greet =<< execParser opts
   where
-    opts = info (sample <**> helper)
+    opts = info (options <**> helper)
       ( fullDesc
-     <> progDesc "Print a greeting for TARGET"
-     <> header "hello - a test for optparse-applicative" )
+     <> progDesc "Husky Tricks"
+     <> header "husky-tricks - An adventure into the unknown" )
 
-greet :: Sample -> IO ()
-greet (Sample h False n) = putStrLn $ "Hello, " ++ h ++ replicate n '!'
+greet :: Options -> IO ()
+greet (Options False False False False "a" "b" "c" "d" "e") = putStrLn $ "Hello"
 greet _ = return ()
