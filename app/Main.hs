@@ -69,6 +69,13 @@ main = greet =<< execParser opts
      <> progDesc "Husky Tricks"
      <> header "husky-tricks - An adventure into the unknown" )
 
+bmiTell :: (RealFloat a) => a -> a -> IO ()
+bmiTell weight height
+    | weight / height ^ 2 <= 18.5 = putStrLn "You're underweight, you emo, you!"
+    | weight / height ^ 2 <= 25.0 = putStrLn "You're supposedly normal. Pffft, I bet you're ugly!"
+    | weight / height ^ 2 <= 30.0 = putStrLn "You're fat! Lose some weight, fatty!"
+    | otherwise                   = putStrLn "You're a whale, congratulations!"
+
 greet :: Options -> IO ()
-greet (Options False False False False "a" "b" "c" "d" "e") = putStrLn $ "Hello"
+greet (Options False False False False "x" "x" "x" "x" "x") = bmiTell 78 1.82
 greet _ = return ()

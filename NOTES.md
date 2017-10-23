@@ -36,26 +36,14 @@ B implement create/update/delete credentials
     ]
 }
 
-# list key stuff
-sm -l keys
-
-# list supported credential types
-sm -l types
-
-# list stores, credentials
-sm -l stores
-sm -l credentials
-
-# retrieve all credentials matching user rubin on host foohost of type ssh
-sm -s -u rubin -h foohost -t ssh
-
-# retrieve single credential using smart flattening
-sm -sf -u rubin -h foohost -t ssh
-
-
-main types
-user has store(s) has credential(s)
-
-
+-h help
+-v version
+-d debug
+-c configure
+-l list
+-s search
+-a add
+-m modify
+-r remove
 
 
