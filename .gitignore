@@ -1,7 +1,3 @@
-**/*.hi
-**/*.o
-**/*.swp
-**/*.tag
-.hsenv
 .stack-work/
-.stack-root/
+husky-tricks.cabal
+*~
