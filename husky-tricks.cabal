@@ -1,8 +1,10 @@
--- This file has been generated from package.yaml by hpack version 0.28.2.
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c231b7f013384b2251337d746a1dc360e3f2280227f96fb6a5ffbc9c1c512260
+-- hash: ae821830f7aa95e01d371631f947bbfcc1c6b817f64d51d6d9e2e1832ab6fff7
 
 name:           husky-tricks
 version:        0.1.0.0
@@ -15,10 +17,9 @@ copyright:      2018 Rubin Simons
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
-cabal-version:  >= 1.10
 extra-source-files:
-    ChangeLog.md
     README.md
+    ChangeLog.md
 
 source-repository head
   type: git
