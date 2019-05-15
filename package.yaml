@@ -1,7 +1,7 @@
 name:                husky-tricks
 version:             0.1.0.0
 github:              "rubin55/husky-tricks"
-license:             BSD3
+license:             MIT
 author:              "Rubin Simons"
 maintainer:          "rubin@raaf.tech"
 copyright:           "2019 Rubin Simons"
