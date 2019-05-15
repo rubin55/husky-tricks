@@ -14,8 +14,8 @@ bug-reports:    https://github.com/rubin55/husky-tricks/issues
 author:         Rubin Simons
 maintainer:     rubin@raaf.tech
 copyright:      2019 Rubin Simons
-license:        BSD3
-license-file:   LICENSE
+license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 extra-source-files:
     README.md
