@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ae821830f7aa95e01d371631f947bbfcc1c6b817f64d51d6d9e2e1832ab6fff7
+-- hash: 287ff8877421102ebab2249dbcbc1ad04ecb322ecef1c507cc3c8c37f417d774
 
 name:           husky-tricks
 version:        0.1.0.0
@@ -13,7 +13,7 @@ homepage:       https://github.com/rubin55/husky-tricks#readme
 bug-reports:    https://github.com/rubin55/husky-tricks/issues
 author:         Rubin Simons
 maintainer:     rubin@raaf.tech
-copyright:      2018 Rubin Simons
+copyright:      2019 Rubin Simons
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple

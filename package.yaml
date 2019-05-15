@@ -4,7 +4,7 @@ github:              "rubin55/husky-tricks"
 license:             BSD3
 author:              "Rubin Simons"
 maintainer:          "rubin@raaf.tech"
-copyright:           "2018 Rubin Simons"
+copyright:           "2019 Rubin Simons"
 
 extra-source-files:
 - README.md
