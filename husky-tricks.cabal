@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c2c4d1247103cabfad7940bf796fedd0a7be7d3427d28d8d40f9976d55be0e7d
+-- hash: be7be8676609f2f1900631b3d2c7f945bb38a4694cb58627f127ad0056ee46a0
 
 name:           husky-tricks
 version:        0.1.0.0
@@ -33,6 +33,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , process
   default-language: Haskell2010
 
 executable husky-tricks-exe
@@ -45,6 +46,7 @@ executable husky-tricks-exe
   build-depends:
       base >=4.7 && <5
     , husky-tricks
+    , process
   default-language: Haskell2010
 
 test-suite husky-tricks-test
@@ -58,4 +60,5 @@ test-suite husky-tricks-test
   build-depends:
       base >=4.7 && <5
     , husky-tricks
+    , process
   default-language: Haskell2010
