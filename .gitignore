@@ -1,3 +1,5 @@
 .stack-work/
+.idea/
 husky-tricks.cabal
+husky-tricks.iml
 *~
