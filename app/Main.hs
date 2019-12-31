@@ -1,11 +1,13 @@
 module Main where
 
-import Lib
-import System.Environment
-import Data.List
+import           Lib
+import           System.Environment (getArgs)
 
 main :: IO ()
 main = do
-    (word:tries:_) <- getArgs
-    starman word (read tries :: Int)
-
+    args <- getArgs
+    if length args /= 2
+        then putStrLn "usage: starman WORD NUMBER_OF_GUESSES"
+        else let word = args !! 0
+                 guesses = read (args !! 1) :: Int
+              in starman word guesses
