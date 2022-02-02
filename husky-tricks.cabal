@@ -1,64 +1,17 @@
-cabal-version: 1.12
+cabal-version:      2.4
+name:               husky-tricks
+version:            0.1.0
+synopsis:           A bag of Haskell tricks to aid learning
+description:        Various experiments in Haskell
+bug-reports:        https://github.com/rubin55/husky-tricks/issues
+license:            MIT
+author:             Rubin Simons
+maintainer:         me@rubin55.org
+copyright:          Copyright (c) 2022, Rubin Simons
+category:           Experiment
 
--- This file has been generated from package.yaml by hpack version 0.31.1.
---
--- see: https://github.com/sol/hpack
---
--- hash: be7be8676609f2f1900631b3d2c7f945bb38a4694cb58627f127ad0056ee46a0
-
-name:           husky-tricks
-version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/rubin55/husky-tricks#readme>
-homepage:       https://github.com/rubin55/husky-tricks#readme
-bug-reports:    https://github.com/rubin55/husky-tricks/issues
-author:         Rubin Simons
-maintainer:     rubin@raaf.tech
-copyright:      2019 Rubin Simons
-license:        MIT
-build-type:     Simple
-extra-source-files:
-    README.md
-    ChangeLog.md
-
-source-repository head
-  type: git
-  location: https://github.com/rubin55/husky-tricks
-
-library
-  exposed-modules:
-      Lib
-  other-modules:
-      Paths_husky_tricks
-  hs-source-dirs:
-      src
-  build-depends:
-      base >=4.7 && <5
-    , process
-  default-language: Haskell2010
-
-executable husky-tricks-exe
-  main-is: Main.hs
-  other-modules:
-      Paths_husky_tricks
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , husky-tricks
-    , process
-  default-language: Haskell2010
-
-test-suite husky-tricks-test
-  type: exitcode-stdio-1.0
-  main-is: Spec.hs
-  other-modules:
-      Paths_husky_tricks
-  hs-source-dirs:
-      test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , husky-tricks
-    , process
-  default-language: Haskell2010
+executable hello
+    main-is:          Main.hs
+    build-depends:    base ^>=4.16.0.0
+    hs-source-dirs:   hello
+    default-language: Haskell2010
